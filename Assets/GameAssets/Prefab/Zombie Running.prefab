@@ -40,9 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1353323593133105991}
+  - component: {fileID: 4087051417186455644}
   - component: {fileID: 3813987018800632438}
   - component: {fileID: 6070851229379509852}
-  - component: {fileID: 4087051417186455644}
   - component: {fileID: 524035133779414545}
   - component: {fileID: 6148259042978418606}
   - component: {fileID: 8780240458972461185}
@@ -70,6 +70,19 @@ Transform:
   - {fileID: 5512558304261213206}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4087051417186455644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562423878850099104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b00150cf2757c418aa1504afa0f07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
+  enemyData: {fileID: 11400000, guid: dd467a49f09dc6345beb0338a2bc93d7, type: 2}
 --- !u!195 &3813987018800632438
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -105,19 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavigation
   stoppingDistance: 1.5
---- !u!114 &4087051417186455644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562423878850099104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b00150cf2757c418aa1504afa0f07f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  enemyData: {fileID: 11400000, guid: dd467a49f09dc6345beb0338a2bc93d7, type: 2}
 --- !u!95 &524035133779414545
 Animator:
   serializedVersion: 7

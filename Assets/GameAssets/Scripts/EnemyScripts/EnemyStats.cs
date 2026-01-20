@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class EnemyStats : MonoBehaviour
+public class EnemyStats : MonoBehaviour, IPoolable
 {
     [SerializeField] private EnemyDataSO enemyData;
 
     public int CurrentHealth { get; private set; }
 
-    private void Start() {
+
+    public void Initialize() {
         CurrentHealth = enemyData.baseMaxHealth;
     }
 
@@ -18,7 +19,15 @@ public class EnemyStats : MonoBehaviour
     }
 
     private void Die() {
-        gameObject.SetActive(false);
+        PoolManager.Instance.Return("Zombies", this); 
+    }
+
+    public void OnSpawnFromPool() {
+        Initialize();
+    }
+
+    public void OnReturnToPool() {
+        // Any cleanup logic when returning to pool
     }
 
 

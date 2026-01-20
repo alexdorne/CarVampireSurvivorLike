@@ -3,17 +3,31 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private string zombiePoolName = "Zombies";
 
     [SerializeField] private NavMeshSurface _navMeshSurface;
 
     [SerializeField] private float _spawnInterval = 5f;
     private float _spawnTimer;
 
+    private void Awake() {
+        
+    }
+
     public void SpawnEnemy(Vector3 position)
     {
-        GameObject newEnemy = Instantiate(_enemyPrefab, position, Quaternion.identity);
-        EnemyManager.Instance.RegisterEnemy(newEnemy);
+        EnemyStats newEnemy = PoolManager.Instance.Get<EnemyStats>(zombiePoolName);
+
+        if (newEnemy != null)
+        {
+            newEnemy.transform.position = position; 
+            newEnemy.transform.rotation = Quaternion.identity;
+
+            newEnemy.Initialize();
+
+            EnemyManager.Instance.RegisterEnemy(newEnemy.gameObject);
+
+        }
     }
 
     private Vector3 GetRandomNavMeshPosition() {
