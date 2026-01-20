@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2fb35284dee9f44916c1ab70a52de6, type: 3}
+  m_Name: ProjectileRange
+  m_EditorClassIdentifier: Assembly-CSharp::StatTypeSO
+  statName: ProjectileRange
+  description: 
+  defaultValue: 1
+  isMultiplicative: 0
+  statCategory: 5

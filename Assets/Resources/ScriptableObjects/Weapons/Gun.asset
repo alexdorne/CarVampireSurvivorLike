@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d705d4633ba52214ea403b906f1527c5, type: 3}
+  m_Name: Gun
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
+  weaponName: Gun
+  category: 1
+  weaponPrefab: {fileID: 0}
+  baseStats:
+  - statType: {fileID: 11400000, guid: 20901f69ab210544dbe92693a07350c4, type: 2}
+    baseValue: 1
+  - statType: {fileID: 11400000, guid: 44fb70f59669c884a924cf93ec36a5dd, type: 2}
+    baseValue: 0.5
+  - statType: {fileID: 11400000, guid: 00e6cb6cf5a14174f8a32f6cb0bf31db, type: 2}
+    baseValue: 0
+  - statType: {fileID: 11400000, guid: b7263786360a5324a8c442fd1932c954, type: 2}
+    baseValue: 1
+  - statType: {fileID: 11400000, guid: 676d622b44ee15d4895a040efd3f3039, type: 2}
+    baseValue: 1
+  - statType: {fileID: 11400000, guid: 3b5fb0eba3aff95459ab969ee3e981a2, type: 2}
+    baseValue: 30
+  - statType: {fileID: 11400000, guid: d5424b84cbd7d2440aff66e31e53cfbe, type: 2}
+    baseValue: 1
+  - statType: {fileID: 11400000, guid: 1cc76c68154dcaf4c89eb7b1444ccfa8, type: 2}
+    baseValue: 0.5
+  availableUpgrades: []
