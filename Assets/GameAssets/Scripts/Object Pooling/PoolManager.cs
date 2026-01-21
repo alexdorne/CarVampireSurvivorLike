@@ -5,7 +5,7 @@ public class PoolManager : SingletonPersistent<PoolManager>
 {
     [SerializeField] private List<PoolConfig> _poolConfigs = new List<PoolConfig>();
 
-    private Dictionary<string, object> pools = new Dictionary<string, object>();
+    private Dictionary<string, ObjectPool> pools = new Dictionary<string, ObjectPool>();
     private Transform _poolParent;
 
     private void Start() {
@@ -26,30 +26,11 @@ public class PoolManager : SingletonPersistent<PoolManager>
         Transform thisPoolParent = new GameObject($"Pool_{config.poolName}").transform;
         thisPoolParent.SetParent(_poolParent);
 
-        Component component = null;
-
-        if (!string.IsNullOrEmpty(config.componentTypeName)) {
-            component = config.prefab.GetComponent(config.componentTypeName);
-            if (component == null) {
-                Debug.LogError($"Component of type '{config.componentTypeName}' not found on prefab for pool '{config.poolName}'.");
-                return;
-            }
-        }
-        else {
-            var components = config.prefab.GetComponents<MonoBehaviour>();
-            if (components.Length == 0) {
-                Debug.LogError($"No MonoBehaviour components found on prefab for pool '{config.poolName}'. Please specify a component type name.");
-                return;
-            }
-        }
-
-        var poolType = typeof(ObjectPool<>).MakeGenericType(component.GetType());
-        var pool = System.Activator.CreateInstance(poolType, component, config.initialSize, config.canExpand, thisPoolParent);
-
+        var pool = new ObjectPool(config.prefab, config.initialSize, config.canExpand, thisPoolParent);
         pools[config.poolName] = pool;
     }
 
-    public void CreatePool<T>(string poolName, T prefab, int initialSize = 10, bool canExpand = true) where T : Component {
+    public void CreatePool(string poolName, GameObject prefab, int initialSize = 10, bool canExpand = true) {
         if (pools.ContainsKey(poolName))
         {
             Debug.LogWarning($"Pool {poolName} already exists!");
@@ -59,10 +40,21 @@ public class PoolManager : SingletonPersistent<PoolManager>
         Transform thisPoolParent = new GameObject($"Pool_{poolName}").transform;
         thisPoolParent.SetParent(_poolParent);
         
-        var pool = new ObjectPool<T>(prefab, initialSize, canExpand, thisPoolParent);
+        var pool = new ObjectPool(prefab, initialSize, canExpand, thisPoolParent);
         pools[poolName] = pool;
     }
-    
+    public GameObject Get(string poolName)
+    {
+        if (!pools.ContainsKey(poolName))
+        {
+            Debug.LogError($"Pool {poolName} does not exist!");
+            return null;
+        }
+        
+        return pools[poolName].Get();
+    }
+
+
     public T Get<T>(string poolName) where T : Component {
         if (!pools.ContainsKey(poolName))
         {
@@ -70,25 +62,21 @@ public class PoolManager : SingletonPersistent<PoolManager>
             return null;
         }
         
-        var pool = pools[poolName] as ObjectPool<T>;
-        if (pool == null)
-        {
-            Debug.LogError($"Pool {poolName} is not of type {typeof(T).Name}");
-            return null;
-        }
-        
-        return pool.Get();
+        return pools[poolName].Get<T>();
     }
     
     public void Return<T>(string poolName, T obj) where T : Component {
+        Return(poolName, obj.gameObject);
+    }
+
+    public void Return(string poolName, GameObject obj){
         if (!pools.ContainsKey(poolName))
         {
             Debug.LogError($"Pool {poolName} does not exist!");
             return;
         }
         
-        var pool = pools[poolName] as ObjectPool<T>;
-        pool?.Return(obj);
+        pools[poolName].Return(obj);
     }
     
     public void ReturnAll(string poolName)
@@ -107,19 +95,13 @@ public class PoolManager : SingletonPersistent<PoolManager>
     public int CountActive(string poolName)
     {
         if (!pools.ContainsKey(poolName)) return 0;
-        
-        var poolObj = pools[poolName];
-        var method = poolObj.GetType().GetMethod("CountActive");
-        return (int)(method?.Invoke(poolObj, null) ?? 0);
+        return pools[poolName].CountActive();
     }
     
     public int CountInactive(string poolName)
     {
         if (!pools.ContainsKey(poolName)) return 0;
-        
-        var poolObj = pools[poolName];
-        var method = poolObj.GetType().GetMethod("CountInactive");
-        return (int)(method?.Invoke(poolObj, null) ?? 0);
+        return pools[poolName].CountInactive();
     }
 
 
@@ -131,7 +113,6 @@ public class PoolConfig
 {
     public string poolName;
     public GameObject prefab; 
-    public string componentTypeName; 
     public int initialSize = 100;
     public bool canExpand = true;
 }

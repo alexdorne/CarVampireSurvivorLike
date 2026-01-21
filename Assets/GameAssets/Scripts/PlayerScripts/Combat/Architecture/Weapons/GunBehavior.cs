@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GunBehavior : WeaponBehavior
 {
-    [SerializeField] private LineRenderer shotLine;
+    //[SerializeField] private LineRenderer shotLine;
     [SerializeField] private float minShotAngle = -30f;
     [SerializeField] private float maxShotAngle = 30f;
     private float attackTimer; 
@@ -75,16 +75,25 @@ public class GunBehavior : WeaponBehavior
     }
 
     private void ShowShotLine(Vector3 start, Vector3 end) {
-        shotLine.positionCount = 2;
-        shotLine.SetPosition(0, start);
-        shotLine.SetPosition(1, end);
-        shotLine.enabled = true;
-        StartCoroutine(HideShotLineAfterDelay(0.5f));
+
+        GameObject shotLine = PoolManager.Instance.Get("GunShots");
+
+        LineRenderer lineRenderer = shotLine.GetComponent<LineRenderer>();
+
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, start);
+        lineRenderer.SetPosition(1, end);
+        lineRenderer.enabled = true;
+        StartCoroutine(HideShotLineAfterDelay(0.5f, lineRenderer));
+
+
     }
 
-    private IEnumerator HideShotLineAfterDelay(float delay) {
+    private IEnumerator HideShotLineAfterDelay(float delay, LineRenderer lineRenderer) {
         yield return new WaitForSeconds(delay);
-        shotLine.enabled = false;
+        lineRenderer.enabled = false;
+        PoolManager.Instance.Return("GunShots", lineRenderer.gameObject); 
+
     }
 
 

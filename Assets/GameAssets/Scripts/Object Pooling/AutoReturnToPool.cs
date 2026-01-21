@@ -22,6 +22,6 @@ public class AutoReturnToPool : MonoBehaviour
         var poolable = GetComponent<IPoolable>();
         poolable?.OnReturnToPool();
 
-        PoolManager.Instance.Return(poolName, this);
+        PoolManager.Instance.Return(poolName, gameObject);
     }
 }

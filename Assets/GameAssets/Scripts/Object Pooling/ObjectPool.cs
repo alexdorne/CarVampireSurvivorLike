@@ -1,16 +1,16 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class ObjectPool<T> where T : Component
+public class ObjectPool
 {
-    private T prefab; 
+    private GameObject prefab; 
     private Transform parentTransform;
-    private Queue<T> availableObjects = new Queue<T>();
-    private List<T> allObjects = new List<T>();
+    private Queue<GameObject> availableObjects = new Queue<GameObject>();
+    private List<GameObject> allObjects = new List<GameObject>();
     private int initialSize; 
     private bool canExpand; 
 
-    public ObjectPool(T prefab, int initialSize = 10, bool canExpand = true, Transform parent = null)
+    public ObjectPool(GameObject prefab, int initialSize = 10, bool canExpand = true, Transform parent = null)
     {
         this.prefab = prefab;
         this.initialSize = initialSize;
@@ -24,17 +24,17 @@ public class ObjectPool<T> where T : Component
         }
     }
 
-    private T CreateNewObject()
+    private GameObject CreateNewObject()
     {
-        T newObj = Object.Instantiate(prefab, parentTransform);
+        GameObject newObj = Object.Instantiate(prefab, parentTransform);
         newObj.gameObject.SetActive(false);
         availableObjects.Enqueue(newObj);
         allObjects.Add(newObj);
         return newObj;
     }
 
-    public T Get() {
-        T obj; 
+    public GameObject Get() {
+        GameObject obj; 
 
         if (availableObjects.Count > 0)
         {
@@ -55,7 +55,15 @@ public class ObjectPool<T> where T : Component
         return obj;
     }
 
-    public void Return(T obj) {
+    public T Get<T>() where T : Component {
+        GameObject obj = Get();
+        if (obj != null) {
+            return obj.GetComponent<T>();
+        }
+        return null;
+    }
+
+    public void Return(GameObject obj) {
         if (obj == null || !allObjects.Contains(obj)) {
             Debug.LogWarning("Trying to return an object that doesn't belong to this pool.");
             return;
