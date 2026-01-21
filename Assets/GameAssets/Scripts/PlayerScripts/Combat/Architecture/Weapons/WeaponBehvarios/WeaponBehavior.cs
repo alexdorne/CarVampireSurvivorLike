@@ -23,6 +23,8 @@ public abstract class WeaponBehavior : MonoBehaviour
         }
     }
 
+
+
     public abstract void OnWeaponUpdate();  
 
     private float GetWeaponStat(StatTypeEnum statType) => weapon.GetStat(StatTypes.Instance.GetStatTypeSO(statType));
@@ -35,6 +37,7 @@ public abstract class WeaponBehavior : MonoBehaviour
     protected float GetProjectileRange() => GetWeaponStat(StatTypeEnum.ProjectileRange);
     protected float GetSize() => GetWeaponStat(StatTypeEnum.Size);   
     protected float GetKnockback() => GetWeaponStat(StatTypeEnum.Knockback);
+    protected float GetProjectileSpeed() => GetWeaponStat(StatTypeEnum.ProjectileSpeed);
 
 
 

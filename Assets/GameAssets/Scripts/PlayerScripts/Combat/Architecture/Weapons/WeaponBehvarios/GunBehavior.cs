@@ -2,14 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class GunBehavior : ProjectileBehavior
-{
-    //[SerializeField] private LineRenderer shotLine;
-    [SerializeField] private float minShotAngle = -30f;
-    [SerializeField] private float maxShotAngle = 30f;
-
-
-    
-
+{    
     public override void Fire() {
         StartCoroutine(OnFire());
     }
@@ -52,16 +45,6 @@ public class GunBehavior : ProjectileBehavior
 
     }
 
-    private Vector3 GetConstrainedRandomDirection() {
-        float randomAngle = Random.Range(minShotAngle, maxShotAngle);
-        float randomHeight = Random.Range(-GetProjectileRange() * 0.2f, GetProjectileRange() * 0.2f);
-        
-        Vector3 baseDirection = transform.forward * GetProjectileRange();
-        Vector3 rotated = Quaternion.Euler(randomAngle, 0f, 0f) * baseDirection;
-        rotated.y += randomHeight;
-        
-        return transform.position + rotated;
-    }
 
     private void ShowShotLine(Vector3 start, Vector3 end) {
 
@@ -73,7 +56,7 @@ public class GunBehavior : ProjectileBehavior
         lineRenderer.SetPosition(0, start);
         lineRenderer.SetPosition(1, end);
         lineRenderer.enabled = true;
-        StartCoroutine(HideShotLineAfterDelay(0.5f, lineRenderer));
+        StartCoroutine(HideShotLineAfterDelay(0.1f, lineRenderer));
 
 
     }

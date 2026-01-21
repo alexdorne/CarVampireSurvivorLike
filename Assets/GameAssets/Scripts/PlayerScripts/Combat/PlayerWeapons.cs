@@ -8,11 +8,9 @@ public class PlayerWeapons : MonoBehaviour
     private List<GlobalUpgradeSO> appliedGlobalUpgrades = new List<GlobalUpgradeSO>();
 
     private void Awake() {
-        //foreach (var weapon in allWeapons) {
-        //    weapon.gameObject.SetActive(false);
-        //}
-
-        EquipWeapon(allWeapons[0].weaponData);
+        foreach (var weapon in allWeapons) {
+            EquipWeapon(weapon.weaponData);
+        }
     }
 
     public void EquipWeapon(WeaponDataSO weaponData) {

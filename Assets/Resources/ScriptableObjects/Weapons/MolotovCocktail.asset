@@ -24,12 +24,14 @@ MonoBehaviour:
     baseValue: 0
   - statType: {fileID: 11400000, guid: b7263786360a5324a8c442fd1932c954, type: 2}
     baseValue: 1
-  - statType: {fileID: 11400000, guid: 1cc76c68154dcaf4c89eb7b1444ccfa8, type: 2}
-    baseValue: 0
   - statType: {fileID: 11400000, guid: 676d622b44ee15d4895a040efd3f3039, type: 2}
     baseValue: 1
   - statType: {fileID: 11400000, guid: 3b5fb0eba3aff95459ab969ee3e981a2, type: 2}
-    baseValue: 30
+    baseValue: 15
   - statType: {fileID: 11400000, guid: d5424b84cbd7d2440aff66e31e53cfbe, type: 2}
     baseValue: 0
+  - statType: {fileID: 11400000, guid: 1cc76c68154dcaf4c89eb7b1444ccfa8, type: 2}
+    baseValue: 0
+  - statType: {fileID: 11400000, guid: ec2e571e583d57840b3e5daf85d8435e, type: 2}
+    baseValue: 1
   availableUpgrades: []

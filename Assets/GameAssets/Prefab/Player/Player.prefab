@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapons
   allWeapons:
-  - {fileID: 5214065139189264920}
+  - {fileID: 5789339211008602185}
 --- !u!65 &2284448658852190907
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1162,16 +1162,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8892647541271986260, guid: 342c1dd3dab7c59479151e89f6a85fe5, type: 3}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: 24f302ddd379e0a46b883d5312ffabc2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1075553123648873591, guid: 342c1dd3dab7c59479151e89f6a85fe5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3916433090447399588}
   m_SourcePrefab: {fileID: 100100000, guid: 342c1dd3dab7c59479151e89f6a85fe5, type: 3}
+--- !u!1 &2725798563824784490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1075553123648873591, guid: 342c1dd3dab7c59479151e89f6a85fe5, type: 3}
+  m_PrefabInstance: {fileID: 3116168252761108509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3916433090447399588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2725798563824784490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b285b0fb1e483c7499716e618a71aad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MolotovBehavior
+  minShotAngle: -30
+  maxShotAngle: 30
+  launchAngle: 45
+  gravityScale: 1
 --- !u!4 &5603488643634288221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7421173246343325248, guid: 342c1dd3dab7c59479151e89f6a85fe5, type: 3}
   m_PrefabInstance: {fileID: 3116168252761108509}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5789339211008602185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8892647541271986260, guid: 342c1dd3dab7c59479151e89f6a85fe5, type: 3}
+  m_PrefabInstance: {fileID: 3116168252761108509}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2725798563824784490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f891e592b0b305a47ac2b627c8f1049f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
 --- !u!1001 &6145125546641266192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1229,17 +1268,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72193dc2176a7d442b78503a628ae292, type: 3}
---- !u!114 &5214065139189264920 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2097494069224973320, guid: 72193dc2176a7d442b78503a628ae292, type: 3}
-  m_PrefabInstance: {fileID: 6145125546641266192}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f891e592b0b305a47ac2b627c8f1049f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Weapon
 --- !u!4 &7791586905175575848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4136160581397273400, guid: 72193dc2176a7d442b78503a628ae292, type: 3}

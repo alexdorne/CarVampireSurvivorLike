@@ -36,5 +36,6 @@ public enum StatTypeEnum
     ProjectileCount,
     ProjectileRange,
     Size,
-    Knockback
+    Knockback,
+    ProjectileSpeed
 }   

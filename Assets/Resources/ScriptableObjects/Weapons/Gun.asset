@@ -32,4 +32,6 @@ MonoBehaviour:
     baseValue: 1
   - statType: {fileID: 11400000, guid: 1cc76c68154dcaf4c89eb7b1444ccfa8, type: 2}
     baseValue: 0.1
+  - statType: {fileID: 11400000, guid: ec2e571e583d57840b3e5daf85d8435e, type: 2}
+    baseValue: 1
   availableUpgrades: []
