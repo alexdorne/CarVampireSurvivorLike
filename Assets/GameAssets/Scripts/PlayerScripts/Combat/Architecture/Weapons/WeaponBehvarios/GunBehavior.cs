@@ -1,32 +1,21 @@
 using System.Collections;
 using UnityEngine;
 
-public class GunBehavior : WeaponBehavior
+public class GunBehavior : ProjectileBehavior
 {
     //[SerializeField] private LineRenderer shotLine;
     [SerializeField] private float minShotAngle = -30f;
     [SerializeField] private float maxShotAngle = 30f;
-    private float attackTimer; 
 
-
-    public override void Initialize(Weapon weapon) {
-        base.Initialize(weapon);
-        attackTimer = 0f;
-
-    }
-
-    public override void OnWeaponUpdate() {
-        attackTimer -= Time.deltaTime; 
-
-        if (attackTimer <= 0f) {
-            StartCoroutine(Fire()); 
-            attackTimer = 1f / GetAttackSpeed();
-        }
-    }
 
     
 
-    private IEnumerator Fire() {
+    public override void Fire() {
+        StartCoroutine(OnFire());
+    }
+
+
+    private IEnumerator OnFire() {
         int projectileCount = GetProjectileCount();
         float attackDuration = 1f/GetAttackSpeed() * 0.5f;
 

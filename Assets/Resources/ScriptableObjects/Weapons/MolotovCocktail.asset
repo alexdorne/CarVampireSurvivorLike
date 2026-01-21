@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d705d4633ba52214ea403b906f1527c5, type: 3}
-  m_Name: Gun
+  m_Name: MolotovCocktail
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  weaponName: Gun
+  weaponName: MolotovCocktail
   category: 1
-  weaponPrefab: {fileID: 3762967891368191097, guid: 72193dc2176a7d442b78503a628ae292, type: 3}
+  weaponPrefab: {fileID: 1075553123648873591, guid: 342c1dd3dab7c59479151e89f6a85fe5, type: 3}
   baseStats:
   - statType: {fileID: 11400000, guid: 20901f69ab210544dbe92693a07350c4, type: 2}
     baseValue: 1
@@ -24,12 +24,12 @@ MonoBehaviour:
     baseValue: 0
   - statType: {fileID: 11400000, guid: b7263786360a5324a8c442fd1932c954, type: 2}
     baseValue: 1
+  - statType: {fileID: 11400000, guid: 1cc76c68154dcaf4c89eb7b1444ccfa8, type: 2}
+    baseValue: 0
   - statType: {fileID: 11400000, guid: 676d622b44ee15d4895a040efd3f3039, type: 2}
     baseValue: 1
   - statType: {fileID: 11400000, guid: 3b5fb0eba3aff95459ab969ee3e981a2, type: 2}
     baseValue: 30
   - statType: {fileID: 11400000, guid: d5424b84cbd7d2440aff66e31e53cfbe, type: 2}
-    baseValue: 1
-  - statType: {fileID: 11400000, guid: 1cc76c68154dcaf4c89eb7b1444ccfa8, type: 2}
-    baseValue: 0.1
+    baseValue: 0
   availableUpgrades: []
