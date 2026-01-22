@@ -22,6 +22,7 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         weapon.Initialize(weaponData);
+
         weapon.gameObject.SetActive(true);
         equippedWeapons.Add(weapon);
 

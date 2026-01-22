@@ -513,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWeapons
   allWeapons:
+  - {fileID: 5214065139189264920}
   - {fileID: 5789339211008602185}
 --- !u!65 &2284448658852190907
 BoxCollider:
@@ -1193,7 +1194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MolotovBehavior
   minShotAngle: -30
   maxShotAngle: 30
-  launchAngle: 45
+  launchAngle: 25
   gravityScale: 1
 --- !u!4 &5603488643634288221 stripped
 Transform:
@@ -1268,6 +1269,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72193dc2176a7d442b78503a628ae292, type: 3}
+--- !u!114 &5214065139189264920 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2097494069224973320, guid: 72193dc2176a7d442b78503a628ae292, type: 3}
+  m_PrefabInstance: {fileID: 6145125546641266192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f891e592b0b305a47ac2b627c8f1049f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
 --- !u!4 &7791586905175575848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4136160581397273400, guid: 72193dc2176a7d442b78503a628ae292, type: 3}

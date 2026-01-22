@@ -19,6 +19,8 @@ public class EnemyStats : MonoBehaviour, IPoolable
     }
 
     private void Die() {
+        GameObject xpPickup = PoolManager.Instance.Get("XPPickups"); 
+        xpPickup.transform.position = transform.position + Vector3.up * 0.5f;
         PoolManager.Instance.Return("Zombies", this); 
     }
 

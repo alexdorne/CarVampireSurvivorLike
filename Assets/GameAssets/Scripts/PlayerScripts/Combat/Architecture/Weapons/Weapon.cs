@@ -6,17 +6,16 @@ public class Weapon : MonoBehaviour
     public WeaponDataSO weaponData;
     private List<StatValue> currentStats = new List<StatValue>();
     private List<WeaponUpgradeSO> appliedUpgrades = new List<WeaponUpgradeSO>();
-    private WeaponBehavior weaponBehavior;
+    [SerializeField] private WeaponBehavior weaponBehavior;
 
-    private void Awake() {
-        weaponBehavior = GetComponent<WeaponBehavior>();
-    }
     public void Initialize(WeaponDataSO data) {
         weaponData = data;
 
         foreach (var stat in weaponData.baseStats) {
             currentStats.Add(new StatValue { statType = stat.statType, baseValue = stat.baseValue });
         }
+
+        Debug.Log($"What is {weaponBehavior}?");
 
         if (weaponBehavior != null) {
             weaponBehavior.Initialize(this);

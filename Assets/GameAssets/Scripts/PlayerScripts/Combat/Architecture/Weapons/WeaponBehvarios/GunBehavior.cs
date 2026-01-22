@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class GunBehavior : ProjectileBehavior
-{    
+{
     public override void Fire() {
         StartCoroutine(OnFire());
     }

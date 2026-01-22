@@ -7,6 +7,7 @@ public abstract class WeaponBehavior : MonoBehaviour
     public virtual void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
+
     }
 
     private void Update() {
