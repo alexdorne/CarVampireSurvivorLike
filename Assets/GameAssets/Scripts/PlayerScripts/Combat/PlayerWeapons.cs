@@ -58,4 +58,8 @@ public class PlayerWeapons : MonoBehaviour
 
 
     }
+
+    public bool HasWeapon(WeaponDataSO weaponData) {
+        return equippedWeapons.Exists(w => w.weaponData == weaponData);
+    }
 }

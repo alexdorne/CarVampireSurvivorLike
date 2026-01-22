@@ -6,6 +6,7 @@ using UnityEngine;
 public class GlobalUpgradeSO : ScriptableObject
 {
     public string upgradeName;
+    public string upgradedStat; 
     public string description; 
     public Sprite icon; 
 

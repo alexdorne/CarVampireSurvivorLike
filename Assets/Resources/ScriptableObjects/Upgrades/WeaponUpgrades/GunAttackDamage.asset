@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08125f61d1548824d82cff6acf0da77b, type: 3}
-  m_Name: GunAttackSpeedCommon
+  m_Name: GunAttackDamage
   m_EditorClassIdentifier: Assembly-CSharp::WeaponUpgradeSO
   upgradeName: Gun
-  upgradedStat1: Attack Speed
+  upgradedStat1: Attack Damage
   upgradedStat2: 
   description: 
   icon: {fileID: 0}
   targetWeapon: {fileID: 11400000, guid: c4f0119b443773b4aa7a64fff70af14c, type: 2}
   statModifiers:
-  - statType: {fileID: 11400000, guid: 44fb70f59669c884a924cf93ec36a5dd, type: 2}
-    value: 0.4
-    isMultiplicative: 0
+  - statType: {fileID: 11400000, guid: 20901f69ab210544dbe92693a07350c4, type: 2}
+    value: 1.2
+    isMultiplicative: 1
   hasCustomBehavior: 0
   behaviorScriptName: 

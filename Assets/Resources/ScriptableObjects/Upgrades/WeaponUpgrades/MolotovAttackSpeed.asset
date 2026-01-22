@@ -9,15 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01054d273c98ded46b445f1f7bb2ebae, type: 3}
-  m_Name: GlobalAttackSpeedUpgrade
-  m_EditorClassIdentifier: Assembly-CSharp::GlobalUpgradeSO
-  upgradeName: Attack Speed
+  m_Script: {fileID: 11500000, guid: 08125f61d1548824d82cff6acf0da77b, type: 3}
+  m_Name: MolotovAttackSpeed
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponUpgradeSO
+  upgradeName: Molotov
+  upgradedStat1: Attack Speed
+  upgradedStat2: 
   description: 
   icon: {fileID: 0}
-  filterByCategory: 0
-  categoryFilter: 0
+  targetWeapon: {fileID: 11400000, guid: 24f302ddd379e0a46b883d5312ffabc2, type: 2}
   statModifiers:
   - statType: {fileID: 11400000, guid: 44fb70f59669c884a924cf93ec36a5dd, type: 2}
     value: 0.4
     isMultiplicative: 0
+  hasCustomBehavior: 0
+  behaviorScriptName: 

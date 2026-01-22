@@ -6,6 +6,8 @@ using System.Collections.Generic;
 public class WeaponUpgradeSO : ScriptableObject
 {
     public string upgradeName; 
+    public string upgradedStat1; 
+    public string upgradedStat2;
     public string description;
     public Sprite icon; 
 
