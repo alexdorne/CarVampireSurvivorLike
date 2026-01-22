@@ -127,5 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::XPPickup
   xpAmount: 10
   magnetRadius: 5
-  moveSpeed: 10
+  moveSpeed: 15
+  accelerationRate: 5
   poolName: XPPickups
+  distanceBeforeCollected: 3
