@@ -25,4 +25,9 @@ public class InputManager : Singleton<InputManager>
         IsBraking = inputActions.Player.Brake.IsPressed();
     }
 
+    private void OnDestroy() {
+        inputActions.Player.Disable();
+        inputActions.Dispose(); 
+    }
+
 }

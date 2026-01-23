@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GlobalAttackSpeedUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::GlobalUpgradeSO
   upgradeName: Attack Speed
+  upgradedStat: Attack Speed
   description: 
   icon: {fileID: 0}
   filterByCategory: 0

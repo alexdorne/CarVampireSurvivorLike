@@ -11,7 +11,10 @@ public abstract class WeaponBehavior : MonoBehaviour
     }
 
     private void Update() {
-        OnWeaponUpdate();
+
+        if (PlayerState.Instance.GetCurrentState() == PlayerState.PlayerStates.Alive) { 
+            OnWeaponUpdate();                
+        }
     }
 
     public void HitEnemy(GameObject enemy, float damage, Vector3 knockback) {

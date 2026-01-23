@@ -50,10 +50,18 @@ public class CarController : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        Brake();
-        Move(); 
-        LimitSpeed();
-        Steer();
+        if (PlayerState.Instance.GetCurrentState() == PlayerState.PlayerStates.Paused)
+            return; 
+
+        if (PlayerState.Instance.GetCurrentState() == PlayerState.PlayerStates.Alive) {
+            Brake();
+            Move(); 
+            LimitSpeed();
+            Steer();
+        }
+
+        CoastingBrake();
+
     }
 
     private void Move() {
@@ -104,6 +112,10 @@ public class CarController : MonoBehaviour
             }
         }
 
+        
+    }
+
+    public void CoastingBrake() {
         if (_inputManager.MoveInput.y == 0 && _carRigidbody.linearVelocity.magnitude > 0) {
             foreach (var wheel in wheels) {
                 wheel.wheelCollider.brakeTorque = coastingFriction;

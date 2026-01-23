@@ -83,6 +83,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   enemyData: {fileID: 11400000, guid: dd467a49f09dc6345beb0338a2bc93d7, type: 2}
+  mesh: {fileID: 3425844702397893997}
+  takeDamageMat: {fileID: 2100000, guid: 7f6a8e5112f97d649a324e3437a629f2, type: 2}
+  baseMat: {fileID: 2100000, guid: 1cef3382fdcf7af4d8520c90e7e23d69, type: 2}
 --- !u!195 &3813987018800632438
 NavMeshAgent:
   m_ObjectHideFlags: 0

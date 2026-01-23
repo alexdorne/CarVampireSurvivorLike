@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class XPPickup : MonoBehaviour {
@@ -8,10 +9,22 @@ public class XPPickup : MonoBehaviour {
     [SerializeField] private string poolName = "XPPickups";
     [SerializeField] private float distanceBeforeCollected;
 
+    [Header("Animation")]
+    [SerializeField] private float cycleLength = 2f;
+    [SerializeField] private float moveDistance = 0.1f;
+
     private Transform player;
     private bool isBeingPulled = false;
     private Vector3 velocity = Vector3.zero;
     private float currentSpeed = 0f;
+
+    private Tween moveTween;
+    private Tween rotateTween;
+
+    private void Start() {
+        moveTween = transform.DOMove(new Vector3(transform.position.x, transform.position.y + moveDistance, transform.position.z), cycleLength).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+        rotateTween = transform.DORotate(new Vector3(0, 360, 0), cycleLength * 2, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
+    }
 
     private void Update() {
         if (player == null) {
@@ -23,6 +36,7 @@ public class XPPickup : MonoBehaviour {
 
         if (distanceToPlayer <= magnetRadius) {
             isBeingPulled = true;
+            StopAnimations();
         }
 
         if (isBeingPulled) {
@@ -45,6 +59,11 @@ public class XPPickup : MonoBehaviour {
                 currentSpeed = 0f;
             }
         }
+    }
+
+    private void StopAnimations() {
+        moveTween?.Kill();
+        rotateTween?.Kill();
     }
 
     public void Initialize(float xp) {
