@@ -67,6 +67,7 @@ public class CarController : MonoBehaviour
     private void Move() {
         float moveInput = NormalizeInput(_inputManager.MoveInput.y);
         foreach (var wheel in wheels) {
+
             if (wheel.axle == Axle.Rear) { 
                 if (moveInput != 0) {
                     wheel.wheelCollider.motorTorque = moveInput * maxAcceleration;
